@@ -1,0 +1,30 @@
+artifacts = ["/app/output.json"]
+
+[task]
+name = "afterquery/simulated-robot"
+
+[metadata]
+author_name = "Ted"
+author_email = "tedpadmore@gmail.com"
+difficulty_explanation = "The agent must perform data-efficient active system identification under a strict experiment budget and noisy measurements. Success requires selecting informative excitation trajectories, separating coupled inertial, gravity, viscous, and Coulomb effects, and fitting a predictive model that generalizes to sealed trajectories."
+solution_explanation = "The reference designs informative excitation trajectories, collects noisy observations through the public experiment interface, constructs a dynamics regression model, estimates parameters with regularized least squares, and predicts torque on unseen trajectories."
+verification_explanation = "A separate verifier evaluates predictions on sealed trajectories using clean simulator dynamics. Hidden ground truth and grading logic exist only in the verifier image, while the experiment budget is enforced by the public measurement interface."
+category = "Science"
+subcategory = "Robotics"
+tags = ["robotics", "system-identification", "dynamics", "experiment-design", "controls"]
+expert_time_estimate_hours = 6
+relevant_experience = "Experience developing and debugging robotics and control-system tasks, simulated robot dynamics, numerical experimentation, Python environments, and benchmarkable engineering workflows."
+
+[verifier]
+timeout_sec = 1200.0
+environment_mode = "separate"
+
+[agent]
+timeout_sec = 7200
+
+[environment]
+build_timeout_sec = 600
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
